@@ -1,23 +1,12 @@
 # Ejercicio 5
 
-# Varios valores para x
-x <- -5:5; 
-
-# 1 valor para x
-x <- -3;
-
-# Definicion de f(x)
-
-if(x<0){
-	f <- function(x){sin(x)}
-}else if (x>=2){
-	f <- function(x){4*exp(1)^(x-2)}
-}else{
-	f <- function(x){x^2}
+# Definicion de la funcion f(x)
+myfun <- function(x){
+	ifelse(x<0, sin(x), ifelse(x<2, x^2, 4*exp(x-2)))
 }
 
-# Plot de f(x) FALTA QUE LO HAGA 
-#plot(f,5,-5,type="l")
+# Asignamos varios valores a x
+xval <- seq(-10, 5, by=0.1)
 
-#Resultado de f(x)
-paste("El valor de f es", f(x))
+# Plot de f(x)
+plot(x=xval,y=myfun(xval),type="l")
